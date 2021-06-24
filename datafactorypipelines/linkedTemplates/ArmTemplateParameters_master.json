@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactorypipelines"
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\uilian.silva\\OneDrive - Keyrus\\Área de Trabalho\\Projetos\\Ihara\\Documentos\\Data Sources - Ingestão RAW"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "uilian.silva@keyrus.com.br"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://github.com/UilianCS/datasets/blob/ed2b90ba184efe3c916a39633cbf5fb7efaee8a1/owid-covid-data.csv"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "UilianCS"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

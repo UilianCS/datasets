@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Nome do Data Factory",
+			"defaultValue": "datafactorypipelines"
+		},
+		"FileServer1_password": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'password' de 'FileServer1'"
+		},
+		"HttpServer1_password": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'password' de 'HttpServer1'"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\uilian.silva\\OneDrive - Keyrus\\Área de Trabalho\\Projetos\\Ihara\\Documentos\\Data Sources - Ingestão RAW"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "uilian.silva@keyrus.com.br"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com/UilianCS/datasets/blob/ed2b90ba184efe3c916a39633cbf5fb7efaee8a1/owid-covid-data.csv"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "UilianCS"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI para a conta de armazenamento contendo os modelos do ARM vinculados"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Token SAS para a conta de armazenamento contendo modelos do ARM vinculados"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactorypipelines_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"FileServer1_password": {
+						"value": "[parameters('FileServer1_password')]"
+					},
+					"HttpServer1_password": {
+						"value": "[parameters('HttpServer1_password')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_userName": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
