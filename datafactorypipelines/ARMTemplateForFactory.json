@@ -7,21 +7,9 @@
 			"metadata": "Nome do Data Factory",
 			"defaultValue": "datafactorypipelines"
 		},
-		"FileServer1_password": {
-			"type": "secureString",
-			"metadata": "Cadeia de caracteres segura para 'password' de 'FileServer1'"
-		},
 		"HttpServer1_password": {
 			"type": "secureString",
 			"metadata": "Cadeia de caracteres segura para 'password' de 'HttpServer1'"
-		},
-		"FileServer1_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\Users\\uilian.silva\\OneDrive - Keyrus\\Área de Trabalho\\Projetos\\Ihara\\Documentos\\Data Sources - Ingestão RAW"
-		},
-		"FileServer1_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "uilian.silva@keyrus.com.br"
 		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
@@ -36,24 +24,6 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/FileServer1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "FileServer",
-				"typeProperties": {
-					"host": "[parameters('FileServer1_properties_typeProperties_host')]",
-					"userId": "[parameters('FileServer1_properties_typeProperties_userId')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('FileServer1_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/HttpServer1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
