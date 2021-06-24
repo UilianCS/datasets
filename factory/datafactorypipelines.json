@@ -1,0 +1,9 @@
+{
+	"name": "datafactorypipelines",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a93a0a1b-1870-4667-9955-1d1088121d24",
+		"tenantId": "7cd67214-69f1-4599-9698-f5cc30cf5600"
+	}
+}
